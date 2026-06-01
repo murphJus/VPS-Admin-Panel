@@ -1,0 +1,25 @@
+#site-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #080a0f;
+  overflow: hidden;
+}
+
+#site-bg canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(8,10,15,0.2) 0%, rgba(8,10,15,0.65) 100%);
+}
+

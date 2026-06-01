@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+<!-- HEAD -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="stylesheet" href="assets/css/background1.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
+</head>
+
+<body>
+    <!-- ANIMATED BACKGROUND -->
+    <style>
+    body { background: #080a0f !important; }
+    .bg-dark { background: transparent !important; }
+    header.bg-dark { background: transparent !important; }
+    #site-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #080a0f; overflow: hidden; }
+    #site-bg canvas { width: 100%; height: 100%; }
+    .bg-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(8,10,15,0.2) 0%, rgba(8,10,15,0.65) 100%); }
+    </style>
+    <div id="site-bg">
+      <canvas id="bg-canvas"></canvas>
+      <div class="bg-overlay"></div>
+    </div>
+    <nav class="navbar navbar-expand-md sticky-top d-flex justify-content-center py-3 navbar-dark" id="mainNav" style="background: rgb(27,27,30);opacity: 1;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center ps-0 me-0" href="/"><span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon"><svg class="bi bi-globe" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"></path>
+                    </svg></span><span>Murphy's Network</span></a>
+            <div class="collapse navbar-collapse" id="navcol-5">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="game.html">Game Servers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="security.html">Security</a></li>
+                    <li class="nav-item"><a class="nav-link" href="logs.html">Logs</a></li>
+                </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Logout</a>
+            </div><button class="navbar-toggler" data-bs-target="#navcol-5" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        </div>
+    </nav>
+    <header class="bg-dark pt-5 pb-9">
+        <h1 class="mb-5" style="text-align: center;color: rgb(255, 255, 255);">System Control</h1>
+        <div class="container pt-0 pt-xl-5 mb-0 pb-5">
+            <div class="card mb-3">
+                <div class="card-header" style="border-radius: 13px;">
+                    <h5 class="mb-0">System Control</h5>
+                </div>
+                <div class="card-body ps-4 pe-4"><style>
+.vps-grid{display:flex !important;flex-direction:column !important;gap:14px;width:100%;}
+.vps-panel{background:#0d0e14;border:1px solid #1e2030;border-radius:10px;overflow:hidden;}
+.vps-header{background:#0f1018;padding:10px 14px;border-bottom:1px solid #1e2030;display:flex;align-items:center;justify-content:space-between;}
+.vps-name{color:#c0cce0;font-size:13px;font-weight:600;font-family:monospace;}
+.vps-badge{font-size:10px;padding:2px 8px;border-radius:8px;font-family:monospace;}
+.vps-badge.online{background:#0f1a0f;color:#4a7a4a;border:1px solid #1e3a1e;}
+.vps-body{padding:14px;}
+
+/* Gauges */
+.gauge-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.gauge-label{color:#606878;font-size:11px;font-family:monospace;width:36px;flex-shrink:0;}
+.gauge-track{flex:1;height:6px;background:#1a1c28;border-radius:3px;overflow:hidden;position:relative;}
+.gauge-fill{height:100%;border-radius:3px;transition:width 1s ease;}
+.gauge-fill.cpu{background:linear-gradient(90deg,#2255aa,#4488ff);}
+.gauge-fill.ram{background:linear-gradient(90deg,#1a4a2a,#3a8a5a);}
+.gauge-fill.high{background:linear-gradient(90deg,#7a2020,#cc4444);}
+.gauge-val{color:#8090a0;font-size:11px;font-family:monospace;width:34px;text-align:right;flex-shrink:0;}
+
+/* Controls */
+.vps-controls{display:flex;gap:6px;margin:10px 0 14px;}
+.vps-btn{background:#0a0b0f;border:1px solid #1e2030;color:#5a6a80;font-size:11px;padding:4px 10px;border-radius:5px;cursor:pointer;font-family:monospace;}
+.vps-btn:hover{border-color:#3a4560;color:#8090a0;background:#12141e;}
+.vps-btn.danger{border-color:#3a1818;}
+.vps-btn.danger:hover{border-color:#6a2020;color:#cc6666;background:#120a0a;}
+.vps-btn.active-lock{border-color:#1e3a1e;color:#4a7a4a;background:#0a110d;}
+
+/* Process table */
+.proc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.proc-title{color:#505870;font-size:11px;font-family:monospace;text-transform:uppercase;letter-spacing:0.5px;}
+.proc-table{width:100%;border-collapse:collapse;}
+.proc-table th{color:#404858;font-size:10px;font-family:monospace;text-transform:uppercase;letter-spacing:0.4px;padding:3px 6px;text-align:left;border-bottom:1px solid #1a1c28;}
+.proc-table td{color:#8090a0;font-size:11px;font-family:monospace;padding:4px 6px;border-bottom:1px solid #13141c;}
+.proc-table tr:last-child td{border-bottom:none;}
+.proc-table tr:hover td{background:#0f1018;}
+.proc-cpu{color:#4488ff;}
+.proc-ram{color:#3a8a5a;}
+.kill-btn{background:transparent;border:1px solid #2a1818;color:#5a3030;font-size:10px;padding:1px 7px;border-radius:4px;cursor:pointer;font-family:monospace;}
+.kill-btn:hover{border-color:#6a2020;color:#cc6666;background:#120a0a;}
+.kill-btn:disabled{opacity:0.3;cursor:not-allowed;}
+.proc-divider{border:none;border-top:1px solid #1a1c28;margin:12px 0;}
+</style>
+
+<div class="vps-grid">
+
+  <!-- GAME SERVER VPS -->
+  <div class="vps-panel">
+    <div class="vps-header">
+      <span class="vps-name">Game Server VPS</span>
+      <span class="vps-badge online">online</span>
+    </div>
+    <div class="vps-body">
+      <div class="gauge-row">
+        <span class="gauge-label">CPU</span>
+        <div class="gauge-track"><div class="gauge-fill cpu" id="g-cpu-game" style="width:0%"></div></div>
+        <span class="gauge-val" id="v-cpu-game">0%</span>
+      </div>
+      <div class="gauge-row">
+        <span class="gauge-label">RAM</span>
+        <div class="gauge-track"><div class="gauge-fill ram" id="g-ram-game" style="width:0%"></div></div>
+        <span class="gauge-val" id="v-ram-game">0%</span>
+      </div>
+      <div class="gauge-row">
+        <span class="gauge-label">DISK</span>
+        <div class="gauge-track"><div class="gauge-fill ram" id="g-disk-game" style="width:0%"></div></div>
+        <span class="gauge-val" id="v-disk-game">0%</span>
+      </div>
+      <div class="gauge-row">
+        <span class="gauge-label">NET</span>
+        <div class="gauge-track"><div class="gauge-fill cpu" id="g-net-game" style="width:0%"></div></div>
+        <span class="gauge-val" id="v-net-game">0%</span>
+      </div>
+
+      <div class="vps-controls">
+        <button class="vps-btn" onclick="reboot('game')">Reboot</button>
+        <button class="vps-btn" onclick="toggleSSH('game',this)">SSH Lock</button>
+      </div>
+
+      <hr class="proc-divider">
+      <div class="proc-header">
+        <span class="proc-title">Processes</span>
+        <span style="color:#404858;font-size:10px;font-family:monospace;" id="proc-count-game"></span>
+      </div>
+      <table class="proc-table">
+        <thead><tr><th>PID</th><th>Name</th><th>CPU</th><th>RAM</th><th></th></tr></thead>
+        <tbody id="proc-game"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ADMIN SECURITY VPS -->
+  <div class="vps-panel">
+    <div class="vps-header">
+      <span class="vps-name">Admin Security VPS</span>
+      <span class="vps-badge online">online</span>
+    </div>
+    <div class="vps-body">
+      <div class="gauge-row">
+        <span class="gauge-label">CPU</span>
+        <div class="gauge-track"><div class="gauge-fill cpu" id="g-cpu-admin" style="width:0%"></div></div>
+        <span class="gauge-val" id="v-cpu-admin">0%</span>
+      </div>
+      <div class="gauge-row">
+        <span class="gauge-label">RAM</span>
+        <div class="gauge-track"><div class="gauge-fill ram" id="g-ram-admin" style="width:0%"></div></div>
+        <span class="gauge-val" id="v-ram-admin">0%</span>
+      </div>
+      <div class="gauge-row">
+        <span class="gauge-label">DISK</span>
+        <div class="gauge-track"><div class="gauge-fill ram" id="g-disk-admin" style="width:0%"></div></div>
+        <span class="gauge-val" id="v-disk-admin">0%</span>
+      </div>
+      <div class="gauge-row">
+        <span class="gauge-label">NET</span>
+        <div class="gauge-track"><div class="gauge-fill cpu" id="g-net-admin" style="width:0%"></div></div>
+        <span class="gauge-val" id="v-net-admin">0%</span>
+      </div>
+
+      <!-- Admin has no reboot/shutdown — site is hosted here -->
+      <div class="vps-controls">
+        <button class="vps-btn" onclick="toggleSSH('admin',this)">SSH Lock</button>
+        <span style="color:#303848;font-size:10px;font-family:monospace;padding:4px 6px;">reboot/shutdown disabled — active host</span>
+      </div>
+
+      <hr class="proc-divider">
+      <div class="proc-header">
+        <span class="proc-title">Processes</span>
+        <span style="color:#404858;font-size:10px;font-family:monospace;" id="proc-count-admin"></span>
+      </div>
+      <table class="proc-table">
+        <thead><tr><th>PID</th><th>Name</th><th>CPU</th><th>RAM</th><th></th></tr></thead>
+        <tbody id="proc-admin"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var gameProcs = [
+  {pid:1021, name:'java (survival)',  cpu:28, ram:34, killable:true},
+  {pid:1055, name:'java (creative)',  cpu:12, ram:18, killable:true},
+  {pid:1089, name:'java (minigames)', cpu:0,  ram:4,  killable:true},
+  {pid:892,  name:'nginx',            cpu:1,  ram:2,  killable:true},
+  {pid:744,  name:'sshd',             cpu:0,  ram:1,  killable:false},
+  {pid:1,    name:'systemd',          cpu:0,  ram:1,  killable:false},
+];
+
+var adminProcs = [
+  {pid:512,  name:'node (admin-hub)', cpu:8,  ram:14, killable:false},
+  {pid:601,  name:'nginx',            cpu:3,  ram:3,  killable:false},
+  {pid:720,  name:'fail2ban',         cpu:1,  ram:2,  killable:false},
+  {pid:744,  name:'sshd',             cpu:0,  ram:1,  killable:false},
+  {pid:810,  name:'twilio-watchdog',  cpu:1,  ram:2,  killable:true},
+  {pid:1,    name:'systemd',          cpu:0,  ram:1,  killable:false},
+];
+
+function totalUsage(procs, key){ return Math.min(procs.reduce(function(s,p){return s+p[key];},0),99); }
+
+function updateGauge(id, val, type){
+  var fill = document.getElementById('g-'+type+'-'+id);
+  var label = document.getElementById('v-'+type+'-'+id);
+  if(!fill||!label) return;
+  fill.style.width = val+'%';
+  label.textContent = val+'%';
+  fill.className = 'gauge-fill '+(val>75?'high':(type==='ram'?'ram':'cpu'));
+}
+
+function renderProcs(id, procs){
+  var tbody = document.getElementById('proc-'+id);
+  var count = document.getElementById('proc-count-'+id);
+  if(!tbody) return;
+  tbody.innerHTML = '';
+  procs.forEach(function(p){
+    var tr = document.createElement('tr');
+    tr.id = 'proc-row-'+id+'-'+p.pid;
+    tr.innerHTML =
+      '<td style="color:#404858">'+p.pid+'</td>'+
+      '<td>'+p.name+'</td>'+
+      '<td class="proc-cpu">'+p.cpu+'%</td>'+
+      '<td class="proc-ram">'+p.ram+'%</td>'+
+      '<td><button class="kill-btn" '+(p.killable?'':'disabled title="system process"')+
+        ' onclick="killProc(\''+id+'\','+p.pid+',this)">kill</button></td>';
+    tbody.appendChild(tr);
+  });
+  if(count) count.textContent = procs.length+' processes';
+}
+
+function killProc(vpsId, pid, btn){
+  btn.textContent='...';
+  btn.disabled=true;
+  setTimeout(function(){
+    var row=document.getElementById('proc-row-'+vpsId+'-'+pid);
+    if(row){row.style.opacity='0';row.style.transition='opacity 0.3s';setTimeout(function(){row.remove();},300);}
+    if(vpsId==='game'){gameProcs=gameProcs.filter(function(p){return p.pid!==pid;});refreshStats();}
+    if(vpsId==='admin'){adminProcs=adminProcs.filter(function(p){return p.pid!==pid;});refreshStats();}
+  },600);
+}
+
+function toggleSSH(id, btn){
+  if(btn.classList.contains('active-lock')){
+    btn.classList.remove('active-lock');
+    btn.textContent='SSH Lock';
+  } else {
+    btn.classList.add('active-lock');
+    btn.textContent='SSH Locked ✓';
+  }
+}
+
+function reboot(id){
+  if(!confirm('Reboot Game Server VPS?')) return;
+}
+
+function refreshStats(){
+  var gcpu=totalUsage(gameProcs,'cpu'), gram=totalUsage(gameProcs,'ram');
+  var acpu=totalUsage(adminProcs,'cpu'), aram=totalUsage(adminProcs,'ram');
+  updateGauge('game','cpu', gcpu); updateGauge('game','ram', gram);
+  updateGauge('game','disk', 62);  updateGauge('game','net', 18);
+  updateGauge('admin','cpu', acpu); updateGauge('admin','ram', aram);
+  updateGauge('admin','disk', 41); updateGauge('admin','net', 9);
+}
+
+// init
+renderProcs('game', gameProcs);
+renderProcs('admin', adminProcs);
+setTimeout(refreshStats, 100);
+
+// simulate live fluctuation
+setInterval(function(){
+  gameProcs.forEach(function(p){ if(p.cpu>0) p.cpu=Math.max(1,Math.min(p.cpu+Math.round((Math.random()-0.5)*4),95)); });
+  adminProcs.forEach(function(p){ if(p.cpu>0) p.cpu=Math.max(1,Math.min(p.cpu+Math.round((Math.random()-0.5)*2),95)); });
+  renderProcs('game',gameProcs);
+  renderProcs('admin',adminProcs);
+  refreshStats();
+}, 3000);
+</script></div>
+            </div>
+        </div>
+    </header>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bold-and-dark.js"></script>
+    <script>
+    (function(){
+    var canvas=document.getElementById("bg-canvas"),ctx=canvas.getContext("2d"),W,H;
+    function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+    resize();window.addEventListener("resize",resize);
+    var particles=[];for(var i=0;i<60;i++)particles.push({x:Math.random(),y:Math.random(),vy:0.0002+Math.random()*0.0004,size:0.5+Math.random()*1.5,alpha:0.2+Math.random()*0.5});
+    var scanLines=[];for(var i=0;i<4;i++)scanLines.push({y:Math.random(),vy:0.0003+Math.random()*0.0004,alpha:0.03+Math.random()*0.04});
+    var chars="01アイウエオカキクケコサシスセソ",dataStreams=[];
+    for(var i=0;i<18;i++)dataStreams.push({x:Math.random(),y:Math.random()*-1,vy:0.001+Math.random()*0.002,chars:Array.from({length:8+Math.floor(Math.random()*8)},function(){return chars[Math.floor(Math.random()*chars.length)];}),alpha:0.06+Math.random()*0.1,tickRate:20+Math.floor(Math.random()*30),tick:0});
+    var pulseRings=[];for(var i=0;i<3;i++)pulseRings.push({x:0.2+Math.random()*0.6,y:0.2+Math.random()*0.6,r:Math.random(),vr:0.0008+Math.random()*0.001,alpha:0.08+Math.random()*0.08});
+    function drawGrid(){var cols=24,rows=14,cw=W/cols,ch=H/rows;ctx.strokeStyle="rgba(30,50,80,0.35)";ctx.lineWidth=0.5;for(var x=0;x<=cols;x++){ctx.beginPath();ctx.moveTo(x*cw,0);ctx.lineTo(x*cw,H);ctx.stroke();}for(var y=0;y<=rows;y++){ctx.beginPath();ctx.moveTo(0,y*ch);ctx.lineTo(W,y*ch);ctx.stroke();}}
+    function drawPerspectiveGrid(){var vx=W*0.5,vy=H*0.55,lines=16,hlines=10;ctx.strokeStyle="rgba(40,70,120,0.18)";ctx.lineWidth=0.5;for(var i=0;i<=lines;i++){var x=(i/lines)*W;ctx.beginPath();ctx.moveTo(x,H);ctx.lineTo(vx,vy);ctx.stroke();}for(var j=0;j<=hlines;j++){var p=j/hlines,ease=Math.pow(p,2.5),y=vy+(H-vy)*ease,lx=vx*(1-ease),rx=vx+(W-vx)*ease;ctx.beginPath();ctx.moveTo(lx,y);ctx.lineTo(rx,y);ctx.stroke();}}
+    function drawHorizonGlow(){var vy=H*0.55,grad=ctx.createLinearGradient(0,vy-40,0,vy+40);grad.addColorStop(0,"rgba(80,120,255,0)");grad.addColorStop(0.5,"rgba(80,120,255,0.07)");grad.addColorStop(1,"rgba(80,120,255,0)");ctx.fillStyle=grad;ctx.fillRect(0,vy-40,W,80);}
+    function drawScanLines(){scanLines.forEach(function(s){s.y+=s.vy;if(s.y>1)s.y=0;var y=s.y*H,grad=ctx.createLinearGradient(0,y-60,0,y+60);grad.addColorStop(0,"rgba(100,160,255,0)");grad.addColorStop(0.5,"rgba(100,160,255,"+s.alpha+")");grad.addColorStop(1,"rgba(100,160,255,0)");ctx.fillStyle=grad;ctx.fillRect(0,y-60,W,120);});}
+    function drawParticles(){particles.forEach(function(p){p.y-=p.vy;if(p.y<0){p.y=1;p.x=Math.random();}ctx.beginPath();ctx.arc(p.x*W,p.y*H,p.size,0,Math.PI*2);ctx.fillStyle="rgba(120,160,220,"+p.alpha+")";ctx.fill();});}
+    function drawDataStreams(){ctx.font="10px monospace";dataStreams.forEach(function(s){s.y+=s.vy;s.tick++;if(s.tick>s.tickRate){s.tick=0;s.chars.push(chars[Math.floor(Math.random()*chars.length)]);s.chars.shift();}if(s.y>1.5){s.y=-0.3;s.x=Math.random();}s.chars.forEach(function(c,i){ctx.fillStyle="rgba(100,160,220,"+(i/s.chars.length*s.alpha)+")";ctx.fillText(c,s.x*W,s.y*H+i*12);});});}
+    function drawPulseRings(){pulseRings.forEach(function(ring){ring.r+=ring.vr;if(ring.r>1)ring.r=0;ctx.beginPath();ctx.arc(ring.x*W,ring.y*H,ring.r*Math.min(W,H)*0.6,0,Math.PI*2);ctx.strokeStyle="rgba(80,120,200,"+(ring.alpha*(1-ring.r))+")";ctx.lineWidth=1;ctx.stroke();});}
+    function drawCornerAccents(){var size=24;ctx.strokeStyle="rgba(80,130,200,0.4)";ctx.lineWidth=1.5;[[0,0,1,1],[W,0,-1,1],[0,H,1,-1],[W,H,-1,-1]].forEach(function(c){ctx.beginPath();ctx.moveTo(c[0]+c[2]*size,c[1]);ctx.lineTo(c[0],c[1]);ctx.lineTo(c[0],c[1]+c[3]*size);ctx.stroke();});}
+    (function frame(){ctx.clearRect(0,0,W,H);ctx.fillStyle="#080a0f";ctx.fillRect(0,0,W,H);drawGrid();drawPerspectiveGrid();drawHorizonGlow();drawScanLines();drawDataStreams();drawParticles();drawPulseRings();drawCornerAccents();requestAnimationFrame(frame);})();
+    })();
+    </script>
+</body>
+
+</html>
